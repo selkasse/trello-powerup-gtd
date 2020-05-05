@@ -6,7 +6,13 @@ TrelloPowerUp.initialize({
     'card-buttons': function(t, options){
         return [{
             icon: CHECK_MARK_ICON,
-            text: 'GTD'
+            text: 'GTD',
+            callback: function(t){
+                return t.popup({
+                    title: 'Add to future board',
+                    url: 'schedule.html'
+                });
+            }
         }];
     }
 });

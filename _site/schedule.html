@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css" />
+    <style>
+      select {
+        height: 30px;
+      }
+    </style>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  </head>
+  <body>
+    <form id="schedule">
+      <label for="scheduledTime">Schedule for:</label>
+      <select name="size" id="estimateSize">
+        <option value="small">Tomorrow</option>
+        <option value="medium">Day after tomorrow</option>
+        <option value="large">Three days from now</option>
+        <option value="x-large">One week from now</option>
+      </select>
+      <button type="submit" class="mod-primary">Save</button>
+    </form>
+  </body>
+</html>
