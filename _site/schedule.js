@@ -16,7 +16,7 @@ t.render(function () {
         .then(function (scheduledDate) {
             window.scheduledCard.value = scheduledDate;
         })
-        // .then(function () {
-        //     t.sizeTo('#schedule').done();
-        // });
+        .then(function () {
+            t.sizeTo('#schedule').done();
+        });
 });
