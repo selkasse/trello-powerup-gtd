@@ -1,5 +1,4 @@
 const Promise = TrelloPowerUp.Promise;
-// const fetch = require('node-fetch');
 
 const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png';
 const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
