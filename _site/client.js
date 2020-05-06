@@ -2,17 +2,19 @@ const Promise = TrelloPowerUp.Promise;
 
 const CHECK_MARK_ICON = 'https://img.icons8.com/ios-glyphs/30/000000/check-all.png';
 
+const onCardBtnClick = function (t, options) {
+    return t.popup({
+        title: 'Add to future board',
+        url: 'schedule.html'
+    });
+}
+
 TrelloPowerUp.initialize({
     'card-buttons': function(t, options){
         return [{
             icon: CHECK_MARK_ICON,
             text: 'GTD',
-            callback: function(t){
-                return t.popup({
-                    title: 'Add to future board',
-                    url: 'schedule.html'
-                });
-            }
+            callback: onCardBtnClick
         }];
     },
     'card-badges': function(t, options) {
@@ -32,12 +34,7 @@ TrelloPowerUp.initialize({
                 title: 'Schedule',
                 color: schedule ? 'green' : 'blue',
                 text: schedule ? `Scheduled for ${schedule}` : 'Schedule for a future board',
-                callback: function (t) {
-                    return t.popup({
-                        title: 'Add to future board',
-                        url: 'schedule.html'
-                    });
-                }
+                callback: onCardBtnClick
             }]
         })
     }
