@@ -12,7 +12,7 @@ const onCardBtnClick = function (t, options) {
 }
 
 const onBoardBtnClick = function(t, options){
-    console.log(t);
+    console.log(t.card);
     return t.popup({
         title: 'Change Master Board',
         url: 'master.html'
