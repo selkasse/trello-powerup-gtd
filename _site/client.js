@@ -27,6 +27,7 @@ TrelloPowerUp.initialize({
     'card-detail-badges': function(t, options) {
         return t.get('card', 'shared', 'scheduled')
         .then(function(schedule) {
+            console.log(schedule);
             return [{
                 title: 'Scheduled',
                 color: schedule ? 'green' : 'blue',
