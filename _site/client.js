@@ -29,7 +29,7 @@ TrelloPowerUp.initialize({
         .then(function(schedule) {
             console.log(schedule);
             return [{
-                title: 'Scheduled',
+                title: 'Schedule',
                 color: schedule ? 'green' : 'blue',
                 text: schedule ? `Scheduled for ${schedule}` : 'Schedule for a future board',
                 callback: function (t) {
