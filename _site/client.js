@@ -1,6 +1,8 @@
 const Promise = TrelloPowerUp.Promise;
 
-const CHECK_MARK_ICON = 'https://img.icons8.com/ios-glyphs/30/000000/check-all.png';
+const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png';
+const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
+const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/master.png';
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
@@ -9,7 +11,25 @@ const onCardBtnClick = function (t, options) {
     });
 }
 
+const onBoardBtnClick = function(t, options){
+    return t.popup({
+        title: 'Master Board',
+        url: 'master.html'
+    })
+}
+
 TrelloPowerUp.initialize({
+    'board-buttons': function(t, options){
+        return [{
+           icon: {
+               dark: MASTER_ICON_DARK,
+               light: MASTER_ICON_LIGHT
+           },
+           text: 'Master Board',
+           callback: onBoardBtnClick,
+           condition: 'edit'
+        }]
+    },
     'card-buttons': function(t, options){
         return [{
             icon: CHECK_MARK_ICON,

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Pull in Trello styling -->
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css" />
+    <style>
+        select {
+            height: 30px;
+        }
+    </style>
+    <!-- pull in the Trello Power-Up API -->
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    </head>
+</head>
+<body>
+    <form id="master">
+        <label for="masterBoard">Estimate:</label>
+        <select name="board" id="masterBoard">
+            <option value="small">Board 1</option>
+            <option value="medium">Board 2</option>
+            <option value="large">Board 3</option>
+            <option value="x-large">Board 4</option>
+        </select>
+        <button type="submit" class="mod-primary">Save</button>
+    </form>
+</body>
+</html>
