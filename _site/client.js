@@ -1,6 +1,4 @@
 const Promise = TrelloPowerUp.Promise;
-const BOARD_URL = window.location.href;
-console.log(BOARD_URL);
 
 const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png';
 const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
@@ -14,6 +12,7 @@ const onCardBtnClick = function (t, options) {
 }
 
 const onBoardBtnClick = function(t, options){
+    console.log(t);
     return t.popup({
         title: 'Change Master Board',
         url: 'master.html'
