@@ -16,6 +16,8 @@ t.render(function () {
         .then(function (scheduledDate) {
             window.scheduledCard.value = scheduledDate;
         })
+    // sizeTo documentation:
+    // https://developer.atlassian.com/cloud/trello/power-ups/ui-functions/t-sizeto/
         .then(function () {
             t.sizeTo('#schedule').done();
         });
