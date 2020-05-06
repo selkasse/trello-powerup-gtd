@@ -25,16 +25,19 @@ TrelloPowerUp.initialize({
        });
     },
     'card-detail-badges': function(t, options) {
-        return [{
-            title: 'Scheduled',
-            color: 'green',
-            text: 'Scheduled for a future board',
-            callback: function (t) {
-                return t.popup({
-                    title: 'Add to future board',
-                    url: 'schedule.html'
-                });
-            }
-        }];
+        return t.get('card', 'shared', 'scheduled')
+        .then(function(schedule) {
+            return [{
+                title: 'Scheduled',
+                color: schedule ? 'green' : 'blue',
+                text: schedule ? `Scheduled for ${schedule}` : 'Schedule for a future board',
+                callback: function (t) {
+                    return t.popup({
+                        title: 'Add to future board',
+                        url: 'schedule.html'
+                    });
+                }
+            }]
+        })
     }
 });
