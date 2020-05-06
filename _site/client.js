@@ -4,7 +4,29 @@ const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png
 const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
 const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/master.png';
 
+let userId;
+
+// get the user ID
 fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json'
+    }
+})
+.then(response => {
+    console.log(
+        `Response: ${response.status} ${response.statusText}`
+    );
+    return response.text();
+})
+.then(text => {
+    const res = (JSON.parse(text));
+    userId = res.id;
+})
+.catch(err => console.error(err));
+
+// get the boards that belong to the user
+fetch(`https://api.trello.com/1/members/${userId}/boards?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661`, {
     method: 'GET',
     headers: {
         'Accept': 'application/json'
@@ -18,7 +40,8 @@ fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&
     })
     .then(text => {
         const res = (JSON.parse(text));
-        console.log(res.id);
+        console.log(res);
+        // userId = res.id;
     })
     .catch(err => console.error(err));
 
@@ -30,7 +53,6 @@ const onCardBtnClick = function (t, options) {
 }
 
 const onBoardBtnClick = function(t, options){
-    // try t["board"] if this does not work
     console.log(t.board);
     return t.popup({
         title: 'Change Master Board',
