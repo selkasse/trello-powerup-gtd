@@ -25,7 +25,7 @@ TrelloPowerUp.initialize({
        });
     },
     'card-detail-badges': function(t, options) {
-        return t.get('card', 'shared', 'scheduled')
+        return t.get('card', 'shared', 'schedule')
         .then(function(schedule) {
             console.log(schedule);
             return [{
