@@ -1,8 +1,24 @@
 const Promise = TrelloPowerUp.Promise;
+const fetch = require('node-fetch');
 
 const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png';
 const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
 const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/master.png';
+
+fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json'
+    }
+})
+    .then(response => {
+        console.log(
+            `Response: ${response.status} ${response.statusText}`
+        );
+        return response.text();
+    })
+    .then(text => console.log(text))
+    .catch(err => console.error(err));
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
