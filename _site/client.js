@@ -19,8 +19,8 @@ TrelloPowerUp.initialize({
        return t.get('card', 'shared', 'schedule')
        .then(function(schedule){
            return [{
-               icon: schedule ? CHECK_MARK_ICON : '',
-               text: schedule ? schedule : ''
+               icon: schedule ? CHECK_MARK_ICON : null,
+               text: schedule ? schedule : null
            }];
        });
     }
