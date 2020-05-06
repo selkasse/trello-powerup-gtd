@@ -16,7 +16,10 @@ fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&
         );
         return response.text();
     })
-    .then(text => console.log(JSON.parse(text.id)))
+    .then(text => {
+        const res = (JSON.parse(text));
+        console.log(res.id);
+    })
     .catch(err => console.error(err));
 
 const onCardBtnClick = function (t, options) {
