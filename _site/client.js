@@ -32,13 +32,8 @@ fetch(`https://api.trello.com/1/members/${userId}/boards?key=41ae5bff41af5eac3f3
         'Accept': 'application/json'
     }
 })
-    .then(text => console.log(text))
-    .then(text => {
-        const res = (JSON.parse(text));
-        console.log(res);
-        // userId = res.id;
-    })
-    .catch(err => console.error(err));
+.then(text => console.log(text))
+.catch(err => console.error(err));
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
