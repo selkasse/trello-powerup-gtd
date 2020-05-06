@@ -13,6 +13,7 @@
     "@11ty/eleventy": "^0.10.0"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
   }
 }
