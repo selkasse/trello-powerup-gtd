@@ -19,9 +19,22 @@ TrelloPowerUp.initialize({
        return t.get('card', 'shared', 'schedule')
        .then(function(schedule){
            return [{
-               icon: schedule ? CHECK_MARK_ICON : '',
-               text: schedule ? schedule : ''
+               icon: schedule ? CHECK_MARK_ICON : null,
+               text: schedule ? schedule : null
            }];
        });
+    },
+    'card-detail-badges': function(t, options) {
+        return [{
+            title: 'Scheduled',
+            color: 'green',
+            text: 'Scheduled for a future board',
+            callback: function (t) {
+                return t.popup({
+                    title: 'Add to future board',
+                    url: 'schedule.html'
+                });
+            }
+        }];
     }
 });
