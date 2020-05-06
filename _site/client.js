@@ -14,5 +14,11 @@ TrelloPowerUp.initialize({
                 });
             }
         }];
+    },
+    'card-badges': function(t, options) {
+        return [{
+            icon: CHECK_MARK_ICON,
+            text: 'Scheduled for a future board'
+        }]
     }
 });
