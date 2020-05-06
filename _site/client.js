@@ -12,11 +12,11 @@ fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&
 })
     .then(response => {
         console.log(
-            `Response: ${response.status} ${response.statusText.id}`
+            `Response: ${response.status} ${response.statusText}`
         );
         return response.text();
     })
-    .then(text => console.log(text))
+    .then(text => console.log(text["id"]))
     .catch(err => console.error(err));
 
 const onCardBtnClick = function (t, options) {
