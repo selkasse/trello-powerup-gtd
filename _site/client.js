@@ -8,47 +8,53 @@ const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/ma
 // get the member (user) ID
 async function getMemberId() {
 
-    fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        console.log(
-            `Response: ${response.status} ${response.statusText}`
-        );
-        return response.text();
-    })
-    .then(text => {
-        const res = (JSON.parse(text));
-        const memberId = res.id;
-        return memberId;
-    })
-    .catch(err => console.error(err));
+    let response = await fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661');
+    let memberResponse = await response.json();
+    const memberId = memberResponse.id;
+    console.log(memberId);
+    // fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661', {
+    //     method: 'GET',
+    //     headers: {
+    //         'Accept': 'application/json'
+    //     }
+    // })
+    // .then(response => {
+    //     console.log(
+    //         `Response: ${response.status} ${response.statusText}`
+    //     );
+    //     return response.text();
+    // })
+    // .then(text => {
+    //     const res = (JSON.parse(text));
+    //     const memberId = res.id;
+    //     return memberId;
+    // })
+    // .catch(err => console.error(err));
 
 }
 
-// get the boards that belong to the user
-async function getMemberBoards(){
+getMemberId();
 
-    const memberId = await getMemberId();
+// // get the boards that belong to the user
+// async function getMemberBoards(){
 
-    fetch(`https://api.trello.com/1/members/${memberId}/boards?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661`, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(text => {
-        // const response = text;
-        return text;
-    })
-    .catch(err => console.error(err));
+//     const memberId = await getMemberId();
 
-}
+//     fetch(`https://api.trello.com/1/members/${memberId}/boards?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661`, {
+//         method: 'GET',
+//         headers: {
+//             'Accept': 'application/json'
+//         }
+//     })
+//     .then(text => {
+//         // const response = text;
+//         return text;
+//     })
+//     .catch(err => console.error(err));
 
-console.log(getMemberBoards());
+// }
+
+// console.log(getMemberBoards());
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
