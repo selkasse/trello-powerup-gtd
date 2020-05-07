@@ -18,6 +18,7 @@ async function getMemberBoards() {
 }
 
 const select = document.getElementById("masterBoard");
+console.log(select);
 const boards = getMemberBoards();
 
 const option = document.createElement("option");
