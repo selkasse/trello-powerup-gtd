@@ -19,7 +19,7 @@ async function getMemberBoards() {
     return boardNames;
 }
 
-const boards = await getMemberBoards();
+const boards = getMemberBoards();
 
 // add the boards to the dropdown when master.html renders
 t.render(async function(){
