@@ -26,6 +26,7 @@ t.render(function(){
 
     const select = document.getElementById("masterBoard");
     const boards = getMemberBoards();
+    console.log(boards);
     
     const option = document.createElement("option");
     option.text = boards[0];
