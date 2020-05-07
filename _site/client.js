@@ -48,7 +48,7 @@ async function getMemberBoards(){
 
 }
 
-getMemberBoards().then(res => console.log(res));
+console.log(getMemberBoards());
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
