@@ -22,10 +22,10 @@ async function getMemberBoards() {
 // need to tie the logic below to an event listener
 // currently, the select element is null
 
-t.render(function(){
+t.render(async function(){
 
     const select = document.getElementById("masterBoard");
-    const boards = getMemberBoards();
+    const boards = await getMemberBoards();
     console.log(boards);
     
     const option = document.createElement("option");
