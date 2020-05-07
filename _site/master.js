@@ -19,13 +19,10 @@ async function getMemberBoards() {
     return boardNames;
 }
 
-const boards = getMemberBoards();
-console.log(boards);
 
 // add the boards to the dropdown when master.html renders
-t.render(function(){
-    console.log(boards);
-
+t.render(async function(){
+    const boards = await getMemberBoards();
     const select = document.getElementById("masterBoard");
     for(board in boards){
         const option = document.createElement("option");
