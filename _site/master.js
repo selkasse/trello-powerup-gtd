@@ -19,17 +19,14 @@ async function getMemberBoards() {
 
 const select = document.querySelector("masterBoard");
 const boards = getMemberBoards();
-let masterHTML;
 
-for (board in boards) {
-    masterHTML += `<option value=${boards[board]}>${boards[board]}</option>`;
-}
+const option = document.createElement("option");
+option.text = boards[0];
+select.add(option);
 
-// function masterBoardHTML() {
-//     return boards.map(function (board) {
-//         return `<option value=${board}>${board}</option>`;
-//         // without the join, we get an array, which we don't want
-//     }).join('');
+
+// for (board in boards) {
+//     masterHTML += `<option value=${boards[board]}>${boards[board]}</option>`;
 // }
 
-select.innerHTML = masterHTML;
+
