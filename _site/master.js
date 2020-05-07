@@ -29,6 +29,7 @@ t.render(async function(){
         option.text = boards[board];
         select.add(option);
     }
+    t.sizeTo('#masterBoard').done(); 
 })
 
 
