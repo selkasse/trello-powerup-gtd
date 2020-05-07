@@ -25,14 +25,13 @@ async function getMemberBoards() {
 t.render(function(){
 
     const select = document.getElementById("masterBoard");
-    console.log(select);
+    const boards = getMemberBoards();
+    
+    const option = document.createElement("option");
+    option.text = boards[0];
+    select.add(option);
 })
 
-const boards = getMemberBoards();
-
-const option = document.createElement("option");
-option.text = boards[0];
-select.add(option);
 
 
 // for (board in boards) {
