@@ -20,10 +20,6 @@ async function getMemberBoards() {
 const select = document.getElementById("masterBoard");
 const boards = getMemberBoards();
 
-for(let i=0; i < boards.length; i++){
-    let option = boards[i];
-    let element = document.createElement("option");
-    element.text = option;
-    element.value = option;
-    select.add(element);
+for (board in boards) {
+    select.options[select.options.length] = new Option(boards[board], index);
 }
