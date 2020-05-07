@@ -32,6 +32,8 @@ t.render(async function(){
     t.sizeTo('#master').done(); 
 })
 
+export default getMemberBoards;
+
 
 
 
