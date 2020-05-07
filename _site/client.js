@@ -41,14 +41,14 @@ async function getMemberBoards(){
         }
     })
     .then(text => {
-        const response = text;
+        // const response = text;
         return text;
     })
     .catch(err => console.error(err));
 
 }
 
-console.log(await getMemberBoards());
+getMemberBoards().then(res => console.log(res));
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
