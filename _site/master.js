@@ -1,3 +1,5 @@
+const t = TrelloPowerUp.iframe();
+
 // get the member (user) ID
 async function getMemberId() {
 
@@ -17,8 +19,15 @@ async function getMemberBoards() {
     return boardNames;
 }
 
-const select = document.getElementById("masterBoard");
-console.log(select);
+// need to tie the logic below to an event listener
+// currently, the select element is null
+
+t.render(function(){
+
+    const select = document.getElementById("masterBoard");
+    console.log(select);
+})
+
 const boards = getMemberBoards();
 
 const option = document.createElement("option");
