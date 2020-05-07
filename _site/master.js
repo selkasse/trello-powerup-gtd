@@ -19,24 +19,20 @@ async function getMemberBoards() {
     return boardNames;
 }
 
-// need to tie the logic below to an event listener
-// currently, the select element is null
 
+// add the boards to the dropdown when master.html renders
 t.render(async function(){
 
     const select = document.getElementById("masterBoard");
     const boards = await getMemberBoards();
-    console.log(boards);
-    
-    const option = document.createElement("option");
-    option.text = boards[0];
-    select.add(option);
+    for(board in boards){
+        const option = document.createElement("option");
+        option.text = boards[board];
+        select.add(option);
+    }
 })
 
 
 
-// for (board in boards) {
-//     masterHTML += `<option value=${boards[board]}>${boards[board]}</option>`;
-// }
 
 
