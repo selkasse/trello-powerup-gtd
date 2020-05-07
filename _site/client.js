@@ -10,55 +10,20 @@ async function getMemberId() {
 
     let response = await fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661');
     let memberResponse = await response.json();
-    const memberId = memberResponse.id;
-
-    let boardsResponse = await fetch(`https://api.trello.com/1/members/${memberId}/boards?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661`);
-    let boardsJSON = await boardsResponse.json();
-    console.log(boardsJSON);
-
-    // fetch('https://api.trello.com/1/members/me?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661', {
-    //     method: 'GET',
-    //     headers: {
-    //         'Accept': 'application/json'
-    //     }
-    // })
-    // .then(response => {
-    //     console.log(
-    //         `Response: ${response.status} ${response.statusText}`
-    //     );
-    //     return response.text();
-    // })
-    // .then(text => {
-    //     const res = (JSON.parse(text));
-    //     const memberId = res.id;
-    //     return memberId;
-    // })
-    // .catch(err => console.error(err));
+    return memberResponse.id;
 
 }
 
-getMemberId();
+// get the boards that belong to the user
+async function getMemberBoards(){
+    const memberId = getMemberId();
+    
+    let boardsResponse = await fetch(`https://api.trello.com/1/members/${memberId}/boards?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661`);
+    let boardsJSON = await boardsResponse.json();
+    console.log(boardsJSON);
+    
+}
 
-// // get the boards that belong to the user
-// async function getMemberBoards(){
-
-//     const memberId = await getMemberId();
-
-//     fetch(`https://api.trello.com/1/members/${memberId}/boards?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661`, {
-//         method: 'GET',
-//         headers: {
-//             'Accept': 'application/json'
-//         }
-//     })
-//     .then(text => {
-//         // const response = text;
-//         return text;
-//     })
-//     .catch(err => console.error(err));
-
-// }
-
-// console.log(getMemberBoards());
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
