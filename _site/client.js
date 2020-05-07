@@ -24,6 +24,7 @@ async function getMemberBoards(){
     
 }
 
+getMemberBoards();
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
