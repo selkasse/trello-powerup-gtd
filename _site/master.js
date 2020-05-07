@@ -17,9 +17,16 @@ async function getMemberBoards() {
     return boardNames;
 }
 
-const select = document.getElementById("masterBoard");
+const select = document.querySelector("masterBoard");
 const boards = getMemberBoards();
 
 for (board in boards) {
     select.options[select.options.length] = new Option(boards[board], index);
 }
+
+// function masterBoardHTML() {
+//     return stores.map(function (store) {
+//         return '\n            <a href="/store/' + store.slug + '" class="search__result">\n                <strong>' + store.name + '</strong>\n            </a>\n        ';
+//         // without the join, we get an array, which we don't want
+//     }).join('');
+// }
