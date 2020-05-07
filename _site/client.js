@@ -23,10 +23,10 @@ async function getMemberId() {
     .then(text => {
         const res = (JSON.parse(text));
         const memberId = res.id;
+        return memberId;
     })
     .catch(err => console.error(err));
 
-    return memberId;
 }
 
 // get the boards that belong to the user
