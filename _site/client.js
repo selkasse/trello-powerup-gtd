@@ -1,4 +1,4 @@
-// import getMemberBoards from './master.js';
+const getBoards = require('./master.js').getMemberBoards;
 const Promise = TrelloPowerUp.Promise;
 
 const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png';
@@ -6,8 +6,8 @@ const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
 const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/master.png';
 
 
-// const boards = getMemberBoards();
-// console.log(boards);
+const boards = getBoards();
+console.log(boards);
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
