@@ -42,10 +42,10 @@ async function getMemberBoards(){
     })
     .then(text => {
         const response = text;
+        return text;
     })
     .catch(err => console.error(err));
 
-    return text;
 }
 
 console.log(await getMemberBoards());
