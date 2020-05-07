@@ -40,9 +40,15 @@ async function getMemberBoards(){
             'Accept': 'application/json'
         }
     })
-    .then(text => console.log(text))
+    .then(text => {
+        const response = text;
+    })
     .catch(err => console.error(err));
+
+    return text;
 }
+
+console.log(getMemberBoards());
 
 const onCardBtnClick = function (t, options) {
     return t.popup({
