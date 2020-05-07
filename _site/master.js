@@ -24,9 +24,11 @@ for (board in boards) {
     select.options[select.options.length] = new Option(boards[board], index);
 }
 
-// function masterBoardHTML() {
-//     return stores.map(function (store) {
-//         return '\n            <a href="/store/' + store.slug + '" class="search__result">\n                <strong>' + store.name + '</strong>\n            </a>\n        ';
-//         // without the join, we get an array, which we don't want
-//     }).join('');
-// }
+function masterBoardHTML() {
+    return boards.map(function (board) {
+        return `<option value=${board}>${board}</option>`;
+        // without the join, we get an array, which we don't want
+    }).join('');
+}
+
+select.innerHTML = masterBoardHTML();
