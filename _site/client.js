@@ -1,4 +1,5 @@
-// const getBoards = require('./master.js').getMemberBoards;
+const t = TrelloPowerUp.iframe();
+
 const Promise = TrelloPowerUp.Promise;
 
 const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png';
