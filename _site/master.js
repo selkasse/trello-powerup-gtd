@@ -5,7 +5,7 @@ window.master.addEventListener('submit', function (event) {
     event.preventDefault();
     // Set the master board
     console.log(window.masterBoard);
-    return t.set('member', 'shared', 'masterBoard', window.masterBoard.selectedIndex.innerHTML)
+    return t.set('member', 'shared', 'masterBoard', window.masterBoard.selectedIndex)
         .then(function () {
             t.closePopup();
         });
@@ -41,6 +41,7 @@ async function checkIfEnabled(id){
     let response = await fetch(`https://api.trello.com/1/boards/${id}/boardPlugins?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661`)
     let powerupsJSON = await response.json();
     for(powerup in powerupsJSON){
+        // TODO: pout the powerup ID in a separate file
         if (powerupsJSON[powerup].idPlugin === '5eb0ba3ec071f670fcd8b0dd') return true;
     }
     return false;
