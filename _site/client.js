@@ -50,7 +50,7 @@ TrelloPowerUp.initialize({
                 callback: onCardBtnClick
             }];
         }
-        return null;
+        // return null;
     },
     'card-badges': function(t, options) {
        return t.get('card', 'shared', 'schedule')
