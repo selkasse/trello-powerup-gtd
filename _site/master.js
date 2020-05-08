@@ -4,7 +4,7 @@ window.master.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     // Set the master board
-    console.log(window.masterBoard.value);
+    console.log(t.getContext());
     return t.set('member', 'shared', 'masterBoard', window.masterBoard.value)
         .then(function () {
             t.closePopup();
