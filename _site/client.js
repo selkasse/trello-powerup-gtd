@@ -42,14 +42,14 @@ TrelloPowerUp.initialize({
             .then(function (masterBoard) {
                 console.log(masterBoard);
             })
-        if (currentBoard === masterBoard) {
+        // if (currentBoard === masterBoard) {
 
             return [{
                 icon: CHECK_MARK_ICON,
                 text: 'GTD',
                 callback: onCardBtnClick
             }];
-        }
+        // }
         // return null;
     },
     'card-badges': function(t, options) {
