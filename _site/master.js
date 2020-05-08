@@ -48,7 +48,7 @@ async function checkIfEnabled(id){
 
 // add the boards to the dropdown when master.html renders
 t.render(async function(){
-    const masterBoard = t.get('board', 'shared', 'master')
+    const masterBoard = await t.get('board', 'shared', 'master')
     if(masterBoard){
         window.masterBoard.value = masterBoard
     }
