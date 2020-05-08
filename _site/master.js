@@ -1,5 +1,15 @@
 const t = TrelloPowerUp.iframe();
 
+window.schedule.addEventListener('submit', function (event) {
+    // Stop the browser trying to submit the form itself.
+    event.preventDefault();
+    // Set the master board
+    return t.set('card', 'shared', 'masterBoard', window.masterBoard.value)
+        .then(function () {
+            t.closePopup();
+        });
+});
+
 // get the member (user) ID
 async function getMemberId() {
 
