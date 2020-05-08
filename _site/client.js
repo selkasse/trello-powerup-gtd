@@ -41,15 +41,15 @@ TrelloPowerUp.initialize({
         t.get('member', 'shared', 'masterBoard')
             .then(function (masterBoard) {
                 console.log(masterBoard);
+                if (currentBoard === masterBoard) {
+        
+                    return [{
+                        icon: CHECK_MARK_ICON,
+                        text: 'GTD',
+                        callback: onCardBtnClick
+                    }];
+                }
             })
-        // if (currentBoard === masterBoard) {
-
-            return [{
-                icon: CHECK_MARK_ICON,
-                text: 'GTD',
-                callback: onCardBtnClick
-            }];
-        // }
         // return null;
     },
     'card-badges': function(t, options) {
