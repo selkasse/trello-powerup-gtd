@@ -58,7 +58,7 @@ t.render(async function(){
         //     console.log(boards[board].name);
         //     console.log(powerupEnabled);
         // }
-        if(enabled){
+        if (powerupEnabled){
 
             const option = document.createElement("option");
             option.text = boards[board].name;
