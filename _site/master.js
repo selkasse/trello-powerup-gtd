@@ -45,6 +45,7 @@ async function checkIfEnabled(id){
     return false;
 }
 
+const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
 
 // add the boards to the dropdown when master.html renders
 t.render(async function(){
@@ -62,6 +63,7 @@ t.render(async function(){
             option.text = boards[board].name;
             if(masterBoard === boards[board].name){
                 option.selected = true;
+                option.value = MASTER_ICON_DARK;
             }
             select.add(option);
         }
