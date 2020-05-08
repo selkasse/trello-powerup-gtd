@@ -19,7 +19,6 @@ async function getMemberBoards() {
     // return boardsJSON;
     let boards = [];
     for(board in boardsJSON){
-        console.log(boards[board]);
         const obj = {
             id: boardsJSON[board].id,
             name: boardsJSON[board].name
@@ -30,8 +29,11 @@ async function getMemberBoards() {
     return boards;
 }
 
-// function getBoardNames(boardsJSON){
-// }
+async function checkIfEnabled(id){
+    let response = await fetch(`https://api.trello.com/1/boards/${id}/boardPlugins?key=41ae5bff41af5eac3f32ad7a4daab49e&token=5e71d684035b882896f8ecfc32de15dee8c64b0e73b8c965609c3c7473f47661`)
+    let powerupsJSON = await response.json();
+    return powerupsJSON;
+}
 
 
 // return boards JSON from getMemberBoards
@@ -47,6 +49,8 @@ t.render(async function(){
     for (board in boards){
         // call getBoardPowerUps, passing the board ID
         // only create an option if the Trello GTD powerup is enabled on the board
+        const powerupEnabled = await checkIfEnabled(boards[board].id);
+        console.log(powerupEnabled);
         const option = document.createElement("option");
         option.text = boards[board].name;
         select.add(option);
