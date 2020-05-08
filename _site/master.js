@@ -49,28 +49,24 @@ async function checkIfEnabled(id){
 // add the boards to the dropdown when master.html renders
 t.render(async function(){
     const masterBoard = await t.get('member', 'shared', 'masterBoard')
-    // console.log(masterBoard);
-    // if(masterBoard){
-    //     window.masterBoard.value = masterBoard
-    // }
-    // else{
-        const boards = await getMemberBoards();
-        const select = document.getElementById("masterBoard");
-        for (board in boards){
-            // only create an option if the Trello GTD powerup is enabled on the board
-            const powerupEnabled = await checkIfEnabled(boards[board].id);
-    
-            if (powerupEnabled){
-                const option = document.createElement("option");
-                option.text = boards[board].name;
-                if(masterBoard === boards[board].name){
-                    option.selected = true;
-                }
-                select.add(option);
+  
+    const boards = await getMemberBoards();
+    const select = document.getElementById("masterBoard");
+    for (board in boards){
+        // only create an option if the Trello GTD powerup is enabled on the board
+        const powerupEnabled = await checkIfEnabled(boards[board].id);
+
+        if (powerupEnabled){
+            const option = document.createElement("option");
+            option.text = boards[board].name;
+            if(masterBoard === boards[board].name){
+                option.selected = true;
             }
+            select.add(option);
         }
-    // }
-    // t.sizeTo('#master').done(); 
+    }
+ 
+    t.sizeTo('#master').done(); 
 })
 
 
