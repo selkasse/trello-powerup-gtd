@@ -4,7 +4,7 @@ window.schedule.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     // Set the master board
-    return t.set('card', 'shared', 'masterBoard', window.masterBoard.value)
+    return t.set('board', 'shared', 'masterBoard', window.masterBoard.value)
         .then(function () {
             t.closePopup();
         });
