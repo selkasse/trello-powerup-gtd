@@ -4,7 +4,6 @@ window.master.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     // Set the master board
-    console.log(window.masterBoard.value);
     return t.set('member', 'shared', 'masterBoard', window.masterBoard.value)
         .then(function () {
             t.closePopup();
@@ -52,7 +51,6 @@ async function checkIfEnabled(id){
 t.render(async function(){
     t.sizeTo('#master').done(); 
     const masterBoard = await t.get('member', 'shared', 'masterBoard');
-    console.log(masterBoard);
     const boards = await getMemberBoards();
     const select = document.getElementById("masterBoard");
     for (board in boards){
