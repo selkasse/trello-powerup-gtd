@@ -19,10 +19,10 @@ async function getMemberBoards() {
     // return boardsJSON;
     let boards = [];
     for(board in boardsJSON){
-        console.log(board);
+        console.log(boards[board]);
         const obj = {
-            id: board.id,
-            name: board.name
+            id: boards[board].id,
+            name: boards[board].name
         };
         boards.push(obj);
     
