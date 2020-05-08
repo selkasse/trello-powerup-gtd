@@ -54,7 +54,7 @@ t.render(async function(){
     if(masterBoard){
         window.masterBoard.value = masterBoard
     }
-    else{
+    // else{
         const boards = await getMemberBoards();
         const select = document.getElementById("masterBoard");
         for (board in boards){
@@ -67,7 +67,7 @@ t.render(async function(){
                 select.add(option);
             }
         }
-    }
+    // }
     // t.sizeTo('#master').done(); 
 })
 
