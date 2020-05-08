@@ -26,7 +26,7 @@ const onBoardBtnClick = function(t, options){
 TrelloPowerUp.initialize({
     'board-buttons': function(t, options){
         console.log(t.getContext().board);
-        // console.log(await t.get('member', 'shared', 'masterBoard'));
+        console.log(t.get('member', 'shared', 'masterBoard'));
         return [{
            icon: {
                dark: MASTER_ICON_DARK,
