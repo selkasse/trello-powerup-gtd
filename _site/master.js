@@ -4,7 +4,6 @@ window.master.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     // Set the master board
-    console.log(t.getContext());
     return t.set('member', 'shared', 'masterBoard', window.masterBoard.value)
         .then(function () {
             t.closePopup();
@@ -50,10 +49,10 @@ async function checkIfEnabled(id){
 // add the boards to the dropdown when master.html renders
 t.render(async function(){
     const masterBoard = await t.get('member', 'shared', 'masterBoard')
-    console.log(masterBoard);
-    if(masterBoard){
-        window.masterBoard.value = masterBoard
-    }
+    // console.log(masterBoard);
+    // if(masterBoard){
+    //     window.masterBoard.value = masterBoard
+    // }
     // else{
         const boards = await getMemberBoards();
         const select = document.getElementById("masterBoard");
@@ -64,6 +63,9 @@ t.render(async function(){
             if (powerupEnabled){
                 const option = document.createElement("option");
                 option.text = boards[board].name;
+                if(masterBoard === boards[board].name){
+                    option.selected = true;
+                }
                 select.add(option);
             }
         }
