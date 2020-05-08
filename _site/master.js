@@ -50,6 +50,7 @@ t.render(async function(){
         // call getBoardPowerUps, passing the board ID
         // only create an option if the Trello GTD powerup is enabled on the board
         const powerupEnabled = await checkIfEnabled(boards[board].id);
+        console.log(boards[board].name);
         console.log(powerupEnabled);
         const option = document.createElement("option");
         option.text = boards[board].name;
