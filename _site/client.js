@@ -27,7 +27,7 @@ TrelloPowerUp.initialize({
     'board-buttons': function(t, options){
         console.log(t.getContext().board);
         const masterBoard = t.get('member', 'shared', 'masterBoard');
-        console.log(masterBoard);
+        console.log(masterBoard._settledValue);
         return [{
            icon: {
                dark: MASTER_ICON_DARK,
