@@ -8,6 +8,9 @@
         select {
             height: 30px;
         }
+        .masterText {
+            font-size: 12px;
+        }
         
     </style>
     <!-- pull in the Trello Power-Up API -->
@@ -18,7 +21,7 @@
     <form id="master">
       <script src="master.js"></script>
         <!-- pull in user's GTD-enabled boards in master.js -->
-        <label for="masterBoard">Choose a board that has the GTD powerup enabled</label>
+        <label class="masterText" for="masterBoard">Choose a board that has the GTD powerup enabled</label>
         
         <select name="masterBoard" id="masterBoard">
 
