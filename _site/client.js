@@ -25,12 +25,7 @@ const onBoardBtnClick = function(t, options){
 
 TrelloPowerUp.initialize({
     'board-buttons': function(t, options){
-        console.log(t.getContext().board);
-        t.get('member', 'shared', 'masterBoard')
-            .then(function(masterBoard){
-                console.log(masterBoard);
-            })
-        console.log(masterBoard);
+        
         return [{
            icon: {
                dark: MASTER_ICON_DARK,
@@ -42,11 +37,20 @@ TrelloPowerUp.initialize({
         }]
     },
     'card-buttons': function(t, options){
-        return [{
-            icon: CHECK_MARK_ICON,
-            text: 'GTD',
-            callback: onCardBtnClick
-        }];
+        const currentBoard = t.getContext().board;
+        t.get('member', 'shared', 'masterBoard')
+            .then(function (masterBoard) {
+                console.log(masterBoard);
+            })
+        if (currentBoard === masterBoard) {
+
+            return [{
+                icon: CHECK_MARK_ICON,
+                text: 'GTD',
+                callback: onCardBtnClick
+            }];
+        }
+        return null;
     },
     'card-badges': function(t, options) {
        return t.get('card', 'shared', 'schedule')
