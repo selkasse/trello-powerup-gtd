@@ -1,6 +1,6 @@
 const t = TrelloPowerUp.iframe();
 
-window.masterBoard.addEventListener('submit', function (event) {
+window.master.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     // Set the master board
