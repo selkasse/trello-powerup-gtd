@@ -59,8 +59,10 @@ t.render(async function(){
 
         if (powerupEnabled){
             const option = document.createElement("option");
+            option.value = boards[board].id;
+            console.log(option.value);
             option.text = boards[board].name;
-            if(masterBoard === boards[board].name){
+            if(masterBoard === boards[board].id){
                 option.selected = true;
                 option.text += ' ✔️'
             }
