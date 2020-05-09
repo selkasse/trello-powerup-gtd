@@ -1,4 +1,4 @@
-// const t = TrelloPowerUp.iframe();
+const t = TrelloPowerUp.iframe();
 
 const Promise = TrelloPowerUp.Promise;
 
@@ -21,7 +21,9 @@ const onBoardBtnClick = function(t, options){
     })
 }
 
+const checkIfMaster = function(){
 
+}
 
 TrelloPowerUp.initialize({
     'board-buttons': function(t, options){
@@ -60,7 +62,6 @@ TrelloPowerUp.initialize({
     'card-detail-badges': function(t, options) {
         return t.get('card', 'shared', 'schedule')
         .then(function(schedule) {
-            console.log(schedule);
             return [{
                 title: 'Schedule',
                 color: schedule ? 'green' : 'blue',
