@@ -1,5 +1,5 @@
 const t = TrelloPowerUp.iframe();
-import test from './client'
+import test from './client.js'
 window.schedule.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
