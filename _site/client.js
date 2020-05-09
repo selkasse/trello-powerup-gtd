@@ -1,10 +1,15 @@
 // const t = TrelloPowerUp.iframe();
+import cron from 'node-cron';
 
 const Promise = TrelloPowerUp.Promise;
 
 const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png';
 const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
 const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/master.png';
+
+cron.schedule("* * * * *", function () {
+    console.log("running a task every minute");
+});
 
 
 const onCardBtnClick = function (t, options) {
@@ -24,7 +29,6 @@ const onBoardBtnClick = function(t, options){
 
 TrelloPowerUp.initialize({
     'board-buttons': function(t, options){
-        
         return [{
            icon: {
                dark: MASTER_ICON_DARK,
@@ -35,6 +39,7 @@ TrelloPowerUp.initialize({
            condition: 'edit'
         }]
     },
+    // only show card buttons if master board
     'card-buttons': function(t, options){
         return t.get('member', 'shared', 'masterBoard')
         .then(function(masterBoard){
@@ -56,6 +61,7 @@ TrelloPowerUp.initialize({
            }];
        });
     },
+    // only show card detail badges if master board
     'card-detail-badges': function(t, options) {
         return t.get('member', 'shared', 'masterBoard')
         .then(function(masterBoard){
