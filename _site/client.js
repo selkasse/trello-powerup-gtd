@@ -39,9 +39,9 @@ TrelloPowerUp.initialize({
            condition: 'edit'
         }]
     },
-    'card-buttons': async function(t, options){
+    'card-buttons': function(t, options){
         const currentBoard = t.getContext().board;
-        const masterBoard = await t.get('member', 'shared', 'masterBoard');
+        const masterBoard = t.get('member', 'shared', 'masterBoard');
         console.log(currentBoard);
         console.log(masterBoard);
            
