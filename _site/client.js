@@ -1,6 +1,3 @@
-// const t = TrelloPowerUp.iframe();
-// import cron from '../node_modules/node-cron/src/node-cron.js';
-// const cron = require('node-cron');
 import scheduler from './server.js'
 
 
@@ -10,9 +7,9 @@ const CHECK_MARK_ICON = 'https://img.icons8.com/material/24/000000/check-all.png
 const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
 const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/master.png';
 
-const test = 'this is a test';
+// const test = 'this is a test';
 
-scheduler();
+// scheduler();
 
 
 const onCardBtnClick = function (t, options) {
@@ -32,6 +29,7 @@ const onBoardBtnClick = function(t, options){
 
 TrelloPowerUp.initialize({
     'board-buttons': function(t, options){
+        console.log(t.getContext());
         return [{
            icon: {
                dark: MASTER_ICON_DARK,
@@ -86,4 +84,4 @@ TrelloPowerUp.initialize({
     }
 });
 
-export default test;
+// export default test;
