@@ -1,4 +1,4 @@
-const t = TrelloPowerUp.iframe();
+// const t = TrelloPowerUp.iframe();
 
 const Promise = TrelloPowerUp.Promise;
 
