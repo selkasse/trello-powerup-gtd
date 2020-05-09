@@ -39,15 +39,12 @@ TrelloPowerUp.initialize({
            condition: 'edit'
         }]
     },
-    'card-buttons': function(t, options){
+    'card-buttons': async function(t, options){
         const currentBoard = t.getContext().board;
-        let masterBoard;
-        t.get('member', 'shared', 'masterBoard')
-            .then(function (master) {
-                console.log(masterBoard);
-                masterBoard = master;
-            })
+        const masterBoard = await t.get('member', 'shared', 'masterBoard');
+        console.log(currentBoard);
         console.log(masterBoard);
+           
         return [{
             icon: CHECK_MARK_ICON,
             text: 'GTD',
