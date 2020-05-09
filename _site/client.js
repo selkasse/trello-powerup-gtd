@@ -1,6 +1,6 @@
 // const t = TrelloPowerUp.iframe();
-// import cron from 'node-cron';
-const cron = require("node-cron");
+import cron from 'node-cron';
+// const cron = require("node-cron");
 
 const Promise = TrelloPowerUp.Promise;
 
