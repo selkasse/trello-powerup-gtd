@@ -40,17 +40,17 @@ TrelloPowerUp.initialize({
         }]
     },
     'card-buttons': function(t, options){
-        const currentBoard = t.getContext().board;
-        const masterBoard = t.get('member', 'shared', 'masterBoard');
-        console.log(currentBoard);
-        console.log(masterBoard);
-           
-        return [{
-            icon: CHECK_MARK_ICON,
-            text: 'GTD',
-            callback: onCardBtnClick
-        }];
-        // return null;
+        return t.get('member', 'shared', 'masterBoard')
+        .then(function(masterBoard){
+            const currentBoard = t.getContext().board;
+            console.log(currentBoard);
+            console.log(masterBoard);
+            return [{
+                icon: CHECK_MARK_ICON,
+                text: 'GTD',
+                callback: onCardBtnClick
+            }];
+        })
     },
     'card-badges': function(t, options) {
        return t.get('card', 'shared', 'schedule')
