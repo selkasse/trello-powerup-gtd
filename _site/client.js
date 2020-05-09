@@ -10,9 +10,7 @@ const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/ma
 
 const test = 'this is a test';
 
-// cron.schedule("* * * * *", function () {
-//     console.log("running a task every minute");
-// });
+
 
 
 const onCardBtnClick = function (t, options) {
