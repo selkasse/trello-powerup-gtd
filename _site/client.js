@@ -86,4 +86,4 @@ TrelloPowerUp.initialize({
     }
 });
 
-export const {test};
+export {test};
