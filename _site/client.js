@@ -57,14 +57,22 @@ TrelloPowerUp.initialize({
        });
     },
     'card-detail-badges': function(t, options) {
-        return t.get('card', 'shared', 'schedule')
-        .then(function(schedule) {
-            return [{
-                title: 'Schedule',
-                color: schedule ? 'green' : 'blue',
-                text: schedule ? `Scheduled for ${schedule}` : 'Schedule for a future board',
-                callback: onCardBtnClick
-            }]
+        return t.get('member', 'shared', 'masterBoard')
+        .then(function(masterBoard){
+            const currentBoard = t.getContext().board;
+            const isMaster = currentBoard === masterBoard;
+            if(isMaster){
+
+                return t.get('card', 'shared', 'schedule')
+                .then(function(schedule) {
+                    return [{
+                        title: 'Schedule',
+                        color: schedule ? 'green' : 'blue',
+                        text: schedule ? `Scheduled for ${schedule}` : 'Schedule for a future board',
+                        callback: onCardBtnClick
+                    }]
+                })
+            }
         })
     }
 });
