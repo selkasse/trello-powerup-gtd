@@ -7,9 +7,6 @@ const MASTER_ICON_DARK = 'https://img.icons8.com/material/24/000000/master.png';
 const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/master.png';
 
 
-// const boards = getBoards();
-// console.log(boards);
-
 const onCardBtnClick = function (t, options) {
     return t.popup({
         title: 'Add to future board',
@@ -43,11 +40,10 @@ TrelloPowerUp.initialize({
         return t.get('member', 'shared', 'masterBoard')
         .then(function(masterBoard){
             const currentBoard = t.getContext().board;
-            console.log(currentBoard);
-            console.log(masterBoard);
+            const isMaster = currentBoard === masterBoard;
             return [{
-                icon: CHECK_MARK_ICON,
-                text: 'GTD',
+                icon: isMaster ? CHECK_MARK_ICON : null,
+                text: isMaster ? 'GTD' : null,
                 callback: onCardBtnClick
             }];
         })
