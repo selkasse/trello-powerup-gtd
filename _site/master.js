@@ -1,4 +1,4 @@
-import {test} from './client.js';
+// import {test} from './client.js';
 const t = TrelloPowerUp.iframe();
 
 window.master.addEventListener('submit', function (event) {
@@ -50,7 +50,7 @@ async function checkIfEnabled(id){
 
 // add the boards to the dropdown when master.html renders
 t.render(async function(){
-    console.log(test);
+    // console.log(test);
     t.sizeTo('#master').done(); 
     const masterBoard = await t.get('member', 'shared', 'masterBoard');
     const boards = await getMemberBoards();
