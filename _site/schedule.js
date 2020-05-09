@@ -1,5 +1,5 @@
 const t = TrelloPowerUp.iframe();
-
+import test from './client'
 window.schedule.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
@@ -14,6 +14,7 @@ window.schedule.addEventListener('submit', function (event) {
 t.render(function () {
     return t.get('card', 'shared', 'schedule')
         .then(function (scheduledDate) {
+            console.log(test);
             window.scheduledCard.value = scheduledDate;
         })
     // sizeTo documentation:
