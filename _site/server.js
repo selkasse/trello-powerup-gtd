@@ -2,9 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const cron = require('node-cron');
 
-cron.schedule("* * * * *", function () {
-    console.log("running a task every minute");
-});
+const scheduler = function (){
+
+    cron.schedule("* * * * *", function () {
+        console.log("running a task every minute");
+    });
+}
 
 
 const app = express();
@@ -21,3 +24,4 @@ let listener = app.listen(process.env.PORT, function() {
     console.log(`Your powerup is listening on port ${listener.address().port}`);
 })
 
+export default scheduler;

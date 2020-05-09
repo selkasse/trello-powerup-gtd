@@ -1,6 +1,8 @@
 // const t = TrelloPowerUp.iframe();
 // import cron from '../node_modules/node-cron/src/node-cron.js';
 // const cron = require('node-cron');
+import scheduler from './server.js'
+
 
 const Promise = TrelloPowerUp.Promise;
 
@@ -10,7 +12,7 @@ const MASTER_ICON_LIGHT = 'https://img.icons8.com/material-outlined/24/000000/ma
 
 const test = 'this is a test';
 
-
+scheduler();
 
 
 const onCardBtnClick = function (t, options) {
