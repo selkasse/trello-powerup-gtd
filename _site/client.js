@@ -24,14 +24,7 @@ const onBoardBtnClick = function(t, options){
     })
 }
 
-const currentBoard = t.getContext().board;
-let masterBoard;
-t.get('member', 'shared', 'masterBoard')
-    .then(function (master) {
-        console.log(masterBoard);
-        masterBoard = master;
-    })
-console.log(masterBoard);
+
 
 TrelloPowerUp.initialize({
     'board-buttons': function(t, options){
@@ -47,6 +40,14 @@ TrelloPowerUp.initialize({
         }]
     },
     'card-buttons': function(t, options){
+        const currentBoard = t.getContext().board;
+        let masterBoard;
+        t.get('member', 'shared', 'masterBoard')
+            .then(function (master) {
+                console.log(masterBoard);
+                masterBoard = master;
+            })
+        console.log(masterBoard);
         return [{
             icon: CHECK_MARK_ICON,
             text: 'GTD',
